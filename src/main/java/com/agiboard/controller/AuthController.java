@@ -15,7 +15,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "${CORS}", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/token")
 public class AuthController {
     private final JwtTokenUtil jwtTokenUtil;

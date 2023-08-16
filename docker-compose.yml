@@ -6,21 +6,7 @@ services:
     build:
       context: .
     container_name: agiboard
-    depends_on:
-      - db
-    environment:
-      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL_DOCKER}
-      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
-      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - CORS=${CORS}
-      - SIGNING_KEY=${SIGNING_KEY}
+    env_file:
+      - .env
     ports:
-      - "8080:8080"
-  db:
-    image: 'postgres:latest'
-    container_name: db
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - '8080:8080'

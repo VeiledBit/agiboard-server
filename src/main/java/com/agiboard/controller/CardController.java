@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = "${CORS}", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/api/cards")
 public class CardController {
 
